@@ -1,0 +1,29 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {   
+    int n,q,d,a;
+    cin>>n>>q;
+    vector<int> arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>d;
+        for(int j=0;j<d;j++)
+        {
+            cin>>a;
+            arr[i].push_back(a);
+        }
+    }
+    for(int i=0;i<q;i++)
+    {
+        cin>>a>>d;
+        cout<<arr[a][d]<<endl;
+    }
+    
+    return 0;
+}
