@@ -1,0 +1,41 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <set>
+#include <map>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n,c,a;
+    map<string,int> m;
+    char ch[100];
+    cin>>n;
+    map<string,int>::iterator itr;
+    for(int i=0;i<n;i++)
+    {
+        cin>>c>>ch;
+        if(c==1 && (m.find(ch))==m.end())
+        {
+            cin>>a;
+            
+            m.insert(make_pair(ch,a));   
+        }
+        else if(c==1 && (itr=m.find(ch))!=m.end())
+        {
+            cin>>a;
+            itr->second=itr->second+a;  
+        }
+        else if(c==2)
+        {
+            m.erase(ch);
+        }
+        else
+        {
+            cout<<m[ch]<<endl;   
+        }
+    }
+    return 0;
+}
