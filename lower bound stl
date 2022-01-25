@@ -1,0 +1,30 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    vector<int> v1;
+    int q,n;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>q;
+        v1.push_back(q);
+    }
+    cin>>q;
+    for(int i=0;i<q;i++)
+    {
+        cin>>n;
+        auto pt = lower_bound(v1.begin(),v1.end(),n);
+        if(*pt==n||*(pt+1)==n)
+        cout<<"Yes"<<" "<<pt-v1.begin()+1<<endl;
+        else {
+            cout<<"No"<<" "<<pt-v1.begin()+1<<endl;
+        }
+    }
+    return 0;
+}
