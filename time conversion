@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>
+#include<sstream>
+using namespace std;
+
+/*
+ * Complete the 'timeConversion' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts STRING s as parameter.
+ */
+
+string timeConversion(string s) {
+    stringstream str(s);
+    int h[3],temp;
+    int i=0;
+    char ch;
+    while(str>>temp)
+    {
+        h[i]=temp;
+        str>>ch;
+        i++;
+    }
+    string str1 =":";
+    if(h[1]<10)
+    str1=str1+to_string(0)+to_string(h[1])+":";
+    else
+    str1+=to_string(h[1])+":";
+    if(h[2]<10)
+    str1=str1+to_string(0)+to_string(h[2]);
+    else
+    str1+=to_string(h[2]);
+    if(ch=='A')
+    {
+        if(h[0]==12)
+        {
+            h[0]=0;
+            str1=to_string(h[0])+str1;
+            str1=to_string(h[0])+str1;
+            return str1;
+        }
+        else if(h[0]<10)
+        return to_string(0)+to_string(h[0])+str1;
+        else {
+        return to_string(h[0])+str1;
+        }
+    }
+    else {
+        if(h[0]==12)
+        return to_string(h[0])+str1;
+        else
+        {
+           h[0]+=12;
+           str1=to_string(h[0])+str1;
+           return str1;
+        }
+    }
+    
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string s;
+    getline(cin, s);
+
+    string result = timeConversion(s);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
