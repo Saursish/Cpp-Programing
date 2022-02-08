@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+string pangrams(string s) {
+    transform(s.begin(),s.end(),s.begin(), ::tolower);
+    string ans;
+    char ch='a';
+    while(ch<='z')
+    {
+        if(find(s.begin(),s.end(),ch)==s.end())
+        {
+            cout<<ch;
+            break;
+        }
+        ch++;
+    }
+    if(--ch=='z')
+    ans="pangram";
+    else {
+    ans="not pangram";
+    }
+    return ans;
+}
+int main()
+{
+    string s;
+    getline(cin, s);
+    string result = pangrams(s);
+    cout<<result;
+    return 0;
+}
