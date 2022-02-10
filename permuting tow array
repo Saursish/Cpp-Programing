@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+string twoArrays(int k, vector<int> A, vector<int> B) {
+    int n=A.size(),i;
+    sort(A.begin(),A.end());
+    sort(B.begin(),B.end());
+    for(i=0;i<n;i++)
+    {
+        if(A[i]+B[n-i-1]<k)
+        break;
+    }
+    if(i==n)
+    return "YES";
+    else {
+    return "NO";
+    }
+}
+int main()
+{
+    int q;
+    cin>>q;
+    vector<int>a,b;
+    for (int q_itr = 0; q_itr < q; q_itr++) {
+        int n,k;
+        cin>>n,k;
+        for (int i = 0; i < n; i++) {
+            int a1;
+            cin>>a1;
+            a.push_back(a1);
+        }
+        for (int i = 0; i < n; i++) {
+            int B_item;
+            cin>>B_item;
+            b.push_back(B_item);
+        }
+        string result = twoArrays(k, A, B);
+        cout << result << "\n";
+    }
+    return 0;
+ }
