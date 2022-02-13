@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string ltrim(const string &);
+string rtrim(const string &);
+vector<string> split(const string &);
+int birthday(vector<int> s, int d, int m) {
+    int sum =0,i,count=0;
+    for(i=0;i<m;i++)
+    {
+        sum=sum+s[i];
+    }
+    if(sum==d)
+    {
+        count++;
+    }
+    for(i=0;i<s.size()-m;i++){
+        sum=sum-s[i]+s[i+m];
+        if(sum==d)
+        count++;
+    }
+    return count;
+}
+
+int main()
+{
+    int n,d,m;
+    cin>>n;
+    vector<int> s;
+    for (int i = 0; i < n; i++) {
+        cin>>d;
+        s.push_bsck(d);}
+    cin>>d,m;
+    int result = birthday(s, d, m);
+    cout<<result;
+    return 0;
+    }
