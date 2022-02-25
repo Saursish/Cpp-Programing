@@ -1,0 +1,15 @@
+vector<int> arr(N+1,0);
+        for(long long int i=3;i<=N;i+=2)
+        {
+            arr[i]=1;//asuming all odd are prime
+        }
+        for(long long int i=0;i<=N;i+=2)
+        {
+            if(arr[i]=1)
+            {
+                for(long long j = i*i;j<=N;j+=i)
+                {
+                    arr[j]=0;
+                }
+            }
+        }
